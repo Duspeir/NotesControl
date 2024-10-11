@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  height: 100vh;
+  max-width: 100vw;
+  /* background-color: rgba(221, 244, 153, 0.133); */
+  background-color: #efdecd;
+}
+
+#app {
+    font-size: 1.8em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
