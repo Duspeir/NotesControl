@@ -23,7 +23,6 @@ export default {
   created(){
     let id = Number(this.$route.params.id)
     this.title = this.getNote(id)
-    // this.title = list.find(note => note.id === id)
   }
 }
 </script>

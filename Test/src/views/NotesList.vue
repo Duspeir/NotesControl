@@ -17,9 +17,13 @@ export default {
     }
   },
   computed: {
+    ...mapState(useNotesListStore, ['loadData']),
     ...mapState(useNotesListStore, ['getNotes']),
     ...mapState(useNotesListStore, ['removeNote']),
     ...mapState(useNotesListStore, ['notes']),
+  },
+  created() {
+    this.loadData();
   },
   mounted(){
     
@@ -34,9 +38,9 @@ export default {
   <div class="list">
     <button class="list-btn" @click="this.$refs.dialog.show()">Добавить заметку</button>
     <div v-for="tab in notes" class="noteCard">
-      <button class="deleteNote" @click="this.removeNote(tab.id)">Удалить</button>
       <RouterLink :to="{ name: 'note', params: {id:tab.id} }">Открыть</RouterLink>
-      <label>{{ tab.title }}</label>
+      <button class="deleteNote" @click="this.removeNote(tab.id)">Удалить</button>
+      <p>{{ tab.title }}</p>
     </div>
   </div>
 </template>
@@ -44,7 +48,7 @@ export default {
 <style scoped>
 .list {
   margin: 0 auto;
-  width: fit-content;
+  /* width: 80%; */
   max-width: 80%;
   text-wrap: wrap;
   position: relative;
@@ -54,15 +58,19 @@ export default {
   gap: 20px;
 }
 .noteCard {
-  width: fit-content;
+  min-width: 50%;
+  text-wrap: wrap;
   border-bottom: solid 1px black;
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  gap: 10px;
+  gap: 1em;
   padding: 4px 10px;
   background-color: #a0d6b4;
+}
+.noteCard > p {
+  /* padding-left: 1em; */
 }
 .noteCard > .deleteNote, a {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

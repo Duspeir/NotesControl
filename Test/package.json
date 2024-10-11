@@ -10,9 +10,11 @@
     "test:unit": "vitest"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "pinia": "^2.1.7",
     "primevue": "^4.1.0",
     "vue": "^3.4.29",
+    "vue-axios-cors": "^1.0.1",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
