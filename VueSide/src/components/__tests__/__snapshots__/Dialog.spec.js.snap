@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Dialog > renders without props 1`] = `
+"<div class="overlay" style="display: none;">
+  <div class="dialog"><textarea placeholder="Загаловок заметки..."></textarea><textarea rows="15" resize="none" placeholder="Текст заметки..."></textarea>
+    <div class="add-btn"><button>Отмена</button><button>Добавить</button></div>
+  </div>
+</div>"
+`;

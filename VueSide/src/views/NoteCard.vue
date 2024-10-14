@@ -1,7 +1,6 @@
 <script>
 import { mapState } from 'pinia';
 import useNotesListStore from '@/stores/NoteList';
-import router from '@/router';
 import Dialog from '@/components/Dialog.vue';
 export default {
   components: {

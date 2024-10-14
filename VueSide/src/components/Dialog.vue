@@ -46,8 +46,8 @@ export default {
 <div v-show="visible" class="overlay">
     <div class="dialog">
         <slot />
-        <textarea placeholder="Загаловок заметки..." v-model="title"/>
-        <textarea rows="15" resize="none" placeholder="Текст заметки..." v-model="content"/>
+        <textarea placeholder="Загаловок заметки..." v-model="title" id="title"/>
+        <textarea rows="15" resize="none" placeholder="Текст заметки..." v-model="content" id="content"/>
         <div class="add-btn">
             <button @click="close()">Отмена</button>
             <button v-if="this.note != undefined" @click="this.updateNote(this.note.id, title, content);close()">Изменить</button>

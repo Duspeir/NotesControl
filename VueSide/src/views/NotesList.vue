@@ -37,22 +37,24 @@ export default {
   </Dialog>
   <div class="list">
     <button class="list-btn" @click="this.$refs.dialog.show()">Добавить заметку</button>
-    <div v-for="tab in notes" class="noteCard">
-      <RouterLink :to="{ name: 'note', params: {id:tab.id} }">Открыть</RouterLink>
-      <button class="deleteNote" @click="this.removeNote(tab.id)">Удалить</button>
-      <p>{{ tab.title }}</p>
+    <div>
+      <div v-for="tab in notes" class="noteCard">
+        <RouterLink :to="{ name: 'note', params: {id:tab.id} }">Открыть</RouterLink>
+        <button class="deleteNote" @click="this.removeNote(tab.id)">Удалить</button>
+        <p>{{ tab.title }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 .list {
-  margin: 0 auto;
-  /* width: 80%; */
-  max-width: 80%;
+  width: 90%;
+  max-width: 90%;
   text-wrap: wrap;
   position: relative;
   top: 1em; 
+  left: 1em;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -69,8 +71,8 @@ export default {
   padding: 4px 10px;
   background-color: #a0d6b4;
 }
-.noteCard > p {
-  /* padding-left: 1em; */
+.noteCard:nth-child(2n){
+  background-color: aliceblue;
 }
 .noteCard > .deleteNote, a {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,8 +86,6 @@ export default {
   border-radius: 5px;
   padding: 4px;
   font-size: 0.7em;
-  /* text-align: center; */
-  /* align-content: center; */
 }
 .noteCard> .deleteNote:hover, a:hover {
   /* background-color: #ffbb99; */

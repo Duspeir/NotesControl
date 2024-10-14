@@ -11,8 +11,17 @@ const useNotesListStore = defineStore('NoteList',{
   },
   actions: {
     async loadData() {
-      const response = await axios.get('http://127.0.0.1:8000/api/get')
-      this.notes = response.data
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/get')
+        this.notes = response.data
+      } catch (error) {
+        this.notes = [
+          {id:1, title:'First Note', content:'This is First Note.'},
+          {id:2, title:'Second Note', content:'And this! This is second Note.'},
+          {id:3, title:'Third Note', content:'And this is Third.'},
+          {id:4, title:'Fourth Note', content:"Oh, it's Fourth note."},
+        ]
+      }
     },
     async addNote(title, content) {
       this.notes.push({id:this.notes.length + 1, title, content})
