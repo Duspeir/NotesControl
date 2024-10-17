@@ -3,18 +3,10 @@ import { mapState } from 'pinia';
 import useNotesListStore from '@/stores/NoteList';
 import Dialog from '@/components/Dialog.vue';
 export default {
-  data() {
-    return {
-      
-    }
-  },
   components: {
     Dialog
   },
   methods: {
-    addNote() {
-       
-    }
   },
   computed: {
     ...mapState(useNotesListStore, ['loadData']),
