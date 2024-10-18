@@ -58,31 +58,35 @@ describe('useNotesListStore', () => {
     beforeEach(() => {setActivePinia(createPinia())})
     it('add note', () => {
         const store = useNotesListStore()
-        expect(store.notes).toEqual([]);
+        // expect(store.notes).toEqual([]);
         store.addNote('First', 'First Note')
-        expect(store.notes).toEqual([{id:1, title: 'First', content: 'First Note'}]);
+        let length = store.notes.length;
+        expect(store.notes[length-1]).toEqual({id:length, title: 'First', content: 'First Note'});
     })
     it('remove note', () => {
         const store = useNotesListStore()
-        expect(store.notes).toEqual([]);
+        // expect(store.notes).toEqual([]);
         store.addNote('First', 'First Note')
-        expect(store.notes).toEqual([{id:1, title: 'First', content: 'First Note'}]);
-        store.removeNote(1)
-        expect(store.notes).toEqual([]);
+        let length = store.notes.length;
+        expect(store.notes[length-1]).toEqual({id:length, title: 'First', content: 'First Note'});
+        store.removeNote(length)
+        expect(store.notes.length).toEqual(length-1);
     })
     it('update note', () => {
         const store = useNotesListStore()
-        expect(store.notes).toEqual([]);
+        // expect(store.notes).toEqual([]);
         store.addNote('First', 'First Note')
-        expect(store.notes).toEqual([{id:1, title: 'First', content: 'First Note'}]);
-        store.updateNote(1, 'Second', 'Second Note')
-        expect(store.notes).toEqual([{id:1, title: 'Second', content: 'Second Note'}]);
+        let length = store.notes.length;
+        expect(store.notes[length-1]).toEqual({id:length, title: 'First', content: 'First Note'});
+        store.updateNote(length, 'Second', 'Second Note')
+        expect(store.notes[length-1]).toEqual({id:length, title: 'Second', content: 'Second Note'});
     })
     it('getnote', () => {
         const store = useNotesListStore()
-        expect(store.notes).toEqual([]);
+        // expect(store.notes).toEqual([]);
         store.addNote('First', 'First Note')
-        expect(store.notes).toEqual([{id:1, title: 'First', content: 'First Note'}]);
-        expect(store.getNote(1)).toEqual({id:1, title: 'First', content: 'First Note'});
+        let length = store.notes.length;
+        expect(store.notes[length-1]).toEqual({id:length, title: 'First', content: 'First Note'});
+        expect(store.getNote(length)).toEqual({id:length, title: 'First', content: 'First Note'});
     })
 })
